@@ -1,0 +1,12 @@
+.next/
+node_modules/
+__pycache__/
+*.pyc
+logs/
+reports/*.db
+reports/*.db-*
+wuxing_stock_app/reports/*.db
+wuxing_stock_app/reports/*.db-*
+wuxing_stock_app/*.db
+*.log
+.pytest_cache/

@@ -1,0 +1,142 @@
+[
+  {
+    "category_id": "tech",
+    "category_name": "科技",
+    "main_element": "metal",
+    "secondary_element": "fire",
+    "element_scores": {"wood": 15, "fire": 25, "earth": 10, "metal": 35, "water": 15},
+    "behavior_description": "科技大类以规则、硬件、算法和应用显化为核心动能。",
+    "free_description": "科技偏金火，代表硬件规则、技术标准和应用释放。",
+    "paid_hint": "解锁后可查看 AI、芯片、云、数据中心等细分动能差异。"
+  },
+  {
+    "category_id": "consumer",
+    "category_name": "消费",
+    "main_element": "fire",
+    "secondary_element": "earth",
+    "element_scores": {"wood": 15, "fire": 35, "earth": 25, "metal": 10, "water": 15},
+    "behavior_description": "消费大类以情绪表达、品牌扩散和渠道承接为核心动能。",
+    "free_description": "消费偏火土，代表传播热度、品牌显化和渠道稳定。",
+    "paid_hint": "解锁后可查看白酒、旅游、美妆、零售等细分动能差异。"
+  },
+  {
+    "category_id": "medicine",
+    "category_name": "医药",
+    "main_element": "wood",
+    "secondary_element": "water",
+    "element_scores": {"wood": 35, "fire": 10, "earth": 15, "metal": 15, "water": 25},
+    "behavior_description": "医药大类以研发启动、管线储备和长期适应为核心动能。",
+    "free_description": "医药偏木水，代表研发创新、管线储备和需求韧性。",
+    "paid_hint": "解锁后可查看创新药、中药、医疗器械等细分动能差异。"
+  },
+  {
+    "category_id": "finance",
+    "category_name": "金融",
+    "main_element": "water",
+    "secondary_element": "metal",
+    "element_scores": {"wood": 10, "fire": 10, "earth": 20, "metal": 25, "water": 35},
+    "behavior_description": "金融大类以资金流动、规则约束和风险定价为核心动能。",
+    "free_description": "金融偏水金，代表资金流动、规则纪律和储备弹性。",
+    "paid_hint": "解锁后可查看银行、证券、保险、支付等细分动能差异。"
+  },
+  {
+    "category_id": "real_estate",
+    "category_name": "地产",
+    "main_element": "earth",
+    "secondary_element": "water",
+    "element_scores": {"wood": 5, "fire": 10, "earth": 40, "metal": 15, "water": 30},
+    "behavior_description": "地产大类以资产承载、信用流动和周期修复为核心动能。",
+    "free_description": "地产偏土水，代表资产承载、资金流转和结构修复。",
+    "paid_hint": "解锁后可查看住宅开发、物业、租赁、建材链等细分动能。"
+  },
+  {
+    "category_id": "energy",
+    "category_name": "能源",
+    "main_element": "fire",
+    "secondary_element": "water",
+    "element_scores": {"wood": 10, "fire": 30, "earth": 20, "metal": 15, "water": 25},
+    "behavior_description": "能源大类以供给释放、资源储备和基础承载为核心动能。",
+    "free_description": "能源偏火水，代表供给释放、资源储备和价格弹性。",
+    "paid_hint": "解锁后可查看煤炭、石油、光伏、储能等细分动能差异。"
+  },
+  {
+    "category_id": "manufacturing",
+    "category_name": "制造",
+    "main_element": "metal",
+    "secondary_element": "earth",
+    "element_scores": {"wood": 10, "fire": 15, "earth": 25, "metal": 35, "water": 15},
+    "behavior_description": "制造大类以精密规则、规模交付和供应链承载为核心动能。",
+    "free_description": "制造偏金土，代表标准化、精密制造和产能承接。",
+    "paid_hint": "解锁后可查看工业母机、自动化、工程机械等细分动能。"
+  },
+  {
+    "category_id": "agriculture",
+    "category_name": "农业",
+    "main_element": "wood",
+    "secondary_element": "earth",
+    "element_scores": {"wood": 35, "fire": 10, "earth": 30, "metal": 10, "water": 15},
+    "behavior_description": "农业大类以生长启动、供给承载和周期稳定为核心动能。",
+    "free_description": "农业偏木土，代表生长、供给和基础稳定。",
+    "paid_hint": "解锁后可查看种业、养殖、农机、粮食安全等细分动能。"
+  },
+  {
+    "category_id": "media",
+    "category_name": "传媒",
+    "main_element": "fire",
+    "secondary_element": "wood",
+    "element_scores": {"wood": 25, "fire": 40, "earth": 10, "metal": 10, "water": 15},
+    "behavior_description": "传媒大类以内容释放、情绪传播和新场景启动为核心动能。",
+    "free_description": "传媒偏火木，代表传播、表达、热度和新内容启动。",
+    "paid_hint": "解锁后可查看游戏、影视、广告、短剧、IP 等细分动能。"
+  },
+  {
+    "category_id": "transport",
+    "category_name": "交通",
+    "main_element": "water",
+    "secondary_element": "earth",
+    "element_scores": {"wood": 10, "fire": 10, "earth": 30, "metal": 15, "water": 35},
+    "behavior_description": "交通大类以流动组织、网络承载和效率调度为核心动能。",
+    "free_description": "交通偏水土，代表流动、调度、网络和承载。",
+    "paid_hint": "解锁后可查看航运、航空、快递、铁路、港口等细分动能。"
+  },
+  {
+    "category_id": "defense",
+    "category_name": "军工",
+    "main_element": "metal",
+    "secondary_element": "fire",
+    "element_scores": {"wood": 15, "fire": 25, "earth": 15, "metal": 35, "water": 10},
+    "behavior_description": "军工大类以高标准制造、体系纪律和装备显化为核心动能。",
+    "free_description": "军工偏金火，代表规则、装备、精密和显化。",
+    "paid_hint": "解锁后可查看航空装备、卫星、无人机、军工电子等细分动能。"
+  },
+  {
+    "category_id": "resources",
+    "category_name": "资源",
+    "main_element": "earth",
+    "secondary_element": "metal",
+    "element_scores": {"wood": 5, "fire": 15, "earth": 35, "metal": 30, "water": 15},
+    "behavior_description": "资源大类以矿产承载、供给纪律和价格弹性为核心动能。",
+    "free_description": "资源偏土金，代表储量承载、开采规则和供给收敛。",
+    "paid_hint": "解锁后可查看有色、稀土、黄金、钢铁、化工资源等细分动能。"
+  },
+  {
+    "category_id": "infrastructure",
+    "category_name": "基建",
+    "main_element": "earth",
+    "secondary_element": "metal",
+    "element_scores": {"wood": 10, "fire": 10, "earth": 40, "metal": 25, "water": 15},
+    "behavior_description": "基建大类以工程承载、标准交付和系统整合为核心动能。",
+    "free_description": "基建偏土金，代表承载、工程、规则和稳定。",
+    "paid_hint": "解锁后可查看建筑、轨交、水利、电力设备等细分动能。"
+  },
+  {
+    "category_id": "environment",
+    "category_name": "环保",
+    "main_element": "water",
+    "secondary_element": "wood",
+    "element_scores": {"wood": 25, "fire": 10, "earth": 20, "metal": 10, "water": 35},
+    "behavior_description": "环保大类以循环流动、修复生长和系统适应为核心动能。",
+    "free_description": "环保偏水木，代表循环、修复、适应和再生。",
+    "paid_hint": "解锁后可查看水处理、固废、碳中和、再生资源等细分动能。"
+  }
+]

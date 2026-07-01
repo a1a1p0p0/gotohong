@@ -1,0 +1,210 @@
+{
+  "version": "1.0.0",
+  "description": "行业五行动能配置。五行不是静态标签，而是行业动能行为方式。",
+  "elements": {
+    "wood": "启动型动能，从 0 到 1，生长、扩张、研发、创新、突破",
+    "fire": "释放型动能，从 1 到 10，传播、表达、情绪、热度、显化",
+    "earth": "承载型动能，从散到稳，平台、基础设施、供应链、稳定、整合",
+    "metal": "收敛型动能，从多到精，规则、标准、精密、硬件、制造、纪律",
+    "water": "储备型动能，从结果回到潜能，流动、数据、储藏、资金、适应、弹性"
+  },
+  "categories": [
+    {
+      "category_id": "tech",
+      "category_name": "科技",
+      "main_element": "metal",
+      "secondary_element": "fire",
+      "element_scores": {
+        "wood": 15,
+        "fire": 25,
+        "earth": 10,
+        "metal": 35,
+        "water": 15
+      },
+      "behavior_description": "科技大类以规则、标准、硬件、算法和技术显化为核心。",
+      "free_description": "科技偏金火，代表技术标准、硬件规则和应用显化。",
+      "paid_hint": "解锁细分行业后，可查看半导体、AI 应用、数据中心、云计算、机器人等方向的五行动能差异。"
+    },
+    {
+      "category_id": "consumer",
+      "category_name": "消费",
+      "main_element": "earth",
+      "secondary_element": "fire",
+      "element_scores": {
+        "wood": 10,
+        "fire": 25,
+        "earth": 35,
+        "metal": 10,
+        "water": 20
+      },
+      "behavior_description": "消费大类以场景承载、品牌表达和情绪释放为核心。",
+      "free_description": "消费偏土火，代表场景、品牌、情绪和稳定需求。",
+      "paid_hint": "解锁细分行业后，可查看白酒、食品饮料、家电、美妆、旅游、餐饮等方向的动能差异。"
+    },
+    {
+      "category_id": "energy",
+      "category_name": "能源",
+      "main_element": "water",
+      "secondary_element": "earth",
+      "element_scores": {
+        "wood": 10,
+        "fire": 10,
+        "earth": 25,
+        "metal": 20,
+        "water": 35
+      },
+      "behavior_description": "能源大类以储备、流动、基础供给和资源承载为核心。",
+      "free_description": "能源偏水土，代表资源储备、流动供给和基础承载。",
+      "paid_hint": "解锁细分行业后，可查看煤炭、石油、天然气、光伏、风电、储能、氢能等方向的动能差异。"
+    }
+  ],
+  "subcategories": [
+    {
+      "subcategory_id": "tech_semiconductor",
+      "category_id": "tech",
+      "subcategory_name": "半导体",
+      "main_element": "metal",
+      "secondary_element": "fire",
+      "element_scores": {
+        "wood": 10,
+        "fire": 25,
+        "earth": 10,
+        "metal": 40,
+        "water": 15
+      },
+      "industry_position": "高端制造与核心硬件基础",
+      "business_model": "技术研发、制造交付、设备材料协同、产业链配套",
+      "upstream_midstream_downstream": "中上游",
+      "emotion_heat": 75,
+      "behavior_description": "半导体以金的精密制造、规则标准和硬件纪律为主，同时具备火的技术显化和产业关注度。",
+      "paid_description": "半导体的核心动能来自精密制造、工艺迭代和国产替代预期。",
+      "risk_tags": ["技术迭代风险", "周期波动", "估值过热", "供应链约束"]
+    },
+    {
+      "subcategory_id": "tech_ai_application",
+      "category_id": "tech",
+      "subcategory_name": "AI 应用",
+      "main_element": "fire",
+      "secondary_element": "wood",
+      "element_scores": {
+        "wood": 30,
+        "fire": 40,
+        "earth": 10,
+        "metal": 10,
+        "water": 10
+      },
+      "industry_position": "应用层与场景扩散层",
+      "business_model": "软件服务、工具订阅、内容生成、效率提升",
+      "upstream_midstream_downstream": "下游",
+      "emotion_heat": 90,
+      "behavior_description": "AI 应用以火的释放、传播、显化为主，木作为副动能代表新场景启动和从 0 到 1 的创新扩张。",
+      "paid_description": "AI 应用的优势在于情绪传播快、用户感知强、场景扩散能力高。",
+      "risk_tags": ["情绪过热", "商业化不确定", "同质化竞争", "估值波动"]
+    },
+    {
+      "subcategory_id": "tech_data_center",
+      "category_id": "tech",
+      "subcategory_name": "数据中心",
+      "main_element": "earth",
+      "secondary_element": "water",
+      "element_scores": {
+        "wood": 5,
+        "fire": 10,
+        "earth": 40,
+        "metal": 15,
+        "water": 30
+      },
+      "industry_position": "算力基础设施与数据承载层",
+      "business_model": "基础设施建设、算力租赁、机房运营、能源配套",
+      "upstream_midstream_downstream": "中游",
+      "emotion_heat": 70,
+      "behavior_description": "数据中心以土的承载和基础设施属性为主，水作为副动能代表数据流动、储备和弹性调度。",
+      "paid_description": "数据中心更偏结构稳定型行业，核心在于承载能力、能耗管理和算力需求持续性。",
+      "risk_tags": ["重资产投入", "能耗约束", "利用率风险", "需求兑现风险"]
+    },
+    {
+      "subcategory_id": "consumer_baijiu",
+      "category_id": "consumer",
+      "subcategory_name": "白酒",
+      "main_element": "earth",
+      "secondary_element": "fire",
+      "element_scores": {
+        "wood": 5,
+        "fire": 25,
+        "earth": 45,
+        "metal": 10,
+        "water": 15
+      },
+      "industry_position": "成熟消费与品牌资产",
+      "business_model": "品牌溢价、渠道销售、库存管理、场景消费",
+      "upstream_midstream_downstream": "下游",
+      "emotion_heat": 65,
+      "behavior_description": "白酒以土的稳定、沉淀和场景承载为主，火代表品牌情绪、社交表达和消费热度。",
+      "paid_description": "白酒的动能不在快速启动，而在品牌沉淀、渠道稳定和消费场景恢复。",
+      "risk_tags": ["消费恢复不及预期", "库存压力", "渠道价格波动", "品牌分化"]
+    },
+    {
+      "subcategory_id": "consumer_tourism",
+      "category_id": "consumer",
+      "subcategory_name": "旅游",
+      "main_element": "fire",
+      "secondary_element": "water",
+      "element_scores": {
+        "wood": 15,
+        "fire": 35,
+        "earth": 15,
+        "metal": 5,
+        "water": 30
+      },
+      "industry_position": "服务消费与流动场景",
+      "business_model": "出行服务、景区运营、酒店餐饮、体验消费",
+      "upstream_midstream_downstream": "下游",
+      "emotion_heat": 80,
+      "behavior_description": "旅游以火的体验释放和情绪表达为主，水代表人流、资金流和季节性流动。",
+      "paid_description": "旅游行业容易受情绪热度和流动条件影响。",
+      "risk_tags": ["季节波动", "客流不稳定", "价格竞争", "突发事件影响"]
+    },
+    {
+      "subcategory_id": "energy_coal",
+      "category_id": "energy",
+      "subcategory_name": "煤炭",
+      "main_element": "earth",
+      "secondary_element": "water",
+      "element_scores": {
+        "wood": 5,
+        "fire": 10,
+        "earth": 40,
+        "metal": 15,
+        "water": 30
+      },
+      "industry_position": "传统能源与基础供给",
+      "business_model": "资源开采、长协销售、能源供应、现金流管理",
+      "upstream_midstream_downstream": "上游",
+      "emotion_heat": 55,
+      "behavior_description": "煤炭以土的资源承载和稳定供给为主，水代表储备、现金流和能源调节属性。",
+      "paid_description": "煤炭更偏稳定承接型行业，动能来自资源基础、价格韧性和现金流。",
+      "risk_tags": ["价格周期", "政策约束", "需求下滑", "安全生产风险"]
+    },
+    {
+      "subcategory_id": "energy_storage",
+      "category_id": "energy",
+      "subcategory_name": "储能",
+      "main_element": "water",
+      "secondary_element": "metal",
+      "element_scores": {
+        "wood": 15,
+        "fire": 10,
+        "earth": 15,
+        "metal": 25,
+        "water": 35
+      },
+      "industry_position": "新能源调节与系统配套",
+      "business_model": "设备制造、系统集成、项目运营、电网调峰",
+      "upstream_midstream_downstream": "中游",
+      "emotion_heat": 75,
+      "behavior_description": "储能以水的储备、调节和弹性为主，金作为副动能代表设备制造、标准和系统纪律。",
+      "paid_description": "储能的核心是把波动能源转化为可调度能力。",
+      "risk_tags": ["价格竞争", "技术路线变化", "项目收益不确定", "政策节奏变化"]
+    }
+  ]
+}

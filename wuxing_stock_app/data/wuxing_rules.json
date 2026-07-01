@@ -1,0 +1,94 @@
+{
+  "version": "1.0.0",
+  "description": "五行动能行为与关系判断规则。五行不是静态标签，而是行业动能的行为方式。",
+  "element_labels": {
+    "wood": "木",
+    "fire": "火",
+    "earth": "土",
+    "metal": "金",
+    "water": "水"
+  },
+  "elements": {
+    "wood": {
+      "name": "木",
+      "energy_type": "启动型动能",
+      "description": "从 0 到 1，生长、扩张、研发、创新、突破。"
+    },
+    "fire": {
+      "name": "火",
+      "energy_type": "释放型动能",
+      "description": "从 1 到 10，传播、表达、情绪、热度、显化。"
+    },
+    "earth": {
+      "name": "土",
+      "energy_type": "承载型动能",
+      "description": "从散到稳，平台、基础设施、供应链、稳定、整合。"
+    },
+    "metal": {
+      "name": "金",
+      "energy_type": "收敛型动能",
+      "description": "从多到精，规则、标准、精密、硬件、制造、纪律。"
+    },
+    "water": {
+      "name": "水",
+      "energy_type": "储备型动能",
+      "description": "从结果回到潜能，流动、数据、储藏、资金、适应、弹性。"
+    }
+  },
+  "generating_cycle": {
+    "wood": "fire",
+    "fire": "earth",
+    "earth": "metal",
+    "metal": "water",
+    "water": "wood"
+  },
+  "controlling_cycle": {
+    "wood": "earth",
+    "earth": "water",
+    "water": "fire",
+    "fire": "metal",
+    "metal": "wood"
+  },
+  "relations": {
+    "generating": {
+      "label": "相生",
+      "score": 30,
+      "description": "时间五行{time_element}生行业五行{industry_element}，代表环境正在滋养行业动能。"
+    },
+    "controlling": {
+      "label": "相克",
+      "score": -30,
+      "description": "时间五行{time_element}克行业五行{industry_element}，代表当前环境对行业动能形成压制。"
+    },
+    "consuming": {
+      "label": "相耗",
+      "score": -10,
+      "description": "行业五行{industry_element}生时间五行{time_element}，代表行业处于输出、消耗和外放状态。"
+    },
+    "over_controlling": {
+      "label": "相乘",
+      "score": -45,
+      "description": "时间五行{time_element}过强地克制行业五行{industry_element}，代表压制过度，行业动能容易失衡。"
+    },
+    "reverse_controlling": {
+      "label": "相侮",
+      "score": -20,
+      "description": "行业五行{industry_element}强于时间五行{time_element}并形成反向冲击，代表原本的克制关系被反冲。"
+    },
+    "regulating": {
+      "label": "相制",
+      "score": 8,
+      "description": "行业五行{industry_element}克时间五行{time_element}，代表行业具备调用、约束和调节当前环境的能力。"
+    },
+    "transforming": {
+      "label": "相化",
+      "score": 20,
+      "description": "时间五行{time_element}与行业五行{industry_element}形成同气或连续转化，代表动能容易顺畅转化。"
+    },
+    "neutral": {
+      "label": "平",
+      "score": 0,
+      "description": "时间五行{time_element}与行业五行{industry_element}没有形成明显生克耗制关系。"
+    }
+  }
+}
