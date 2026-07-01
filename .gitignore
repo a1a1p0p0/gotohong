@@ -10,3 +10,4 @@ wuxing_stock_app/reports/*.db-*
 wuxing_stock_app/*.db
 *.log
 .pytest_cache/
+archives/
