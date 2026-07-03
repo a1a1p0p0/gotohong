@@ -1,12 +1,33 @@
+@tailwind base;
+@tailwind components;
+
 :root {
-  color-scheme: light;
-  --bg: #f7f3ea;
-  --text: #1f2933;
-  --muted: #65727f;
-  --line: #ddd6c8;
-  --accent: #1f7a6d;
-  --accent-strong: #14564e;
-  --panel: #fffaf0;
+  color-scheme: dark;
+  --background: 172 34% 7%;
+  --foreground: 46 34% 92%;
+  --card: 170 28% 10%;
+  --card-foreground: 46 34% 92%;
+  --primary: 43 86% 58%;
+  --primary-foreground: 170 36% 8%;
+  --secondary: 172 22% 16%;
+  --secondary-foreground: 46 30% 88%;
+  --muted: 170 18% 15%;
+  --muted-foreground: 45 13% 68%;
+  --accent: 171 40% 18%;
+  --accent-foreground: 45 32% 90%;
+  --destructive: 0 68% 46%;
+  --destructive-foreground: 46 34% 94%;
+  --border: 44 23% 22%;
+  --input: 44 23% 22%;
+  --ring: 43 86% 58%;
+  --radius: 0.5rem;
+  --legacy-bg: #081413;
+  --legacy-text: #eee6d6;
+  --legacy-muted: #b4aa97;
+  --legacy-line: #453f31;
+  --legacy-accent: #d6a63f;
+  --legacy-accent-strong: #f2c760;
+  --legacy-panel: #102321;
 }
 
 * {
@@ -17,8 +38,8 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--legacy-bg);
+  color: var(--legacy-text);
   font-family: Arial, "Microsoft YaHei", sans-serif;
 }
 
@@ -37,11 +58,11 @@ input,
 select {
   width: 100%;
   margin: 10px 0;
-  border: 1px solid var(--line);
+  border: 1px solid var(--legacy-line);
   border-radius: 8px;
   padding: 12px;
   background: white;
-  color: var(--text);
+  color: var(--legacy-text);
 }
 
 button {
@@ -49,7 +70,7 @@ button {
   margin-top: 8px;
   border: 0;
   border-radius: 8px;
-  background: var(--accent);
+  background: var(--legacy-accent);
   color: white;
   padding: 12px;
   font-weight: 700;
@@ -57,4 +78,78 @@ button {
 
 button + button {
   margin-top: 10px;
+}
+
+@tailwind utilities;
+
+@keyframes wuxingHeroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wuxingMainPulse {
+  0%,
+  100% {
+    opacity: 0.86;
+    stroke-width: 14;
+  }
+  50% {
+    opacity: 1;
+    stroke-width: 17;
+  }
+}
+
+@keyframes wuxingRingBreathe {
+  0%,
+  100% {
+    transform: scale(0.992);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+}
+
+@keyframes wuxingFlowRise {
+  0%,
+  100% {
+    opacity: 0.52;
+    transform: translate3d(-2px, 3px, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(5px, -5px, 0);
+  }
+}
+
+.wuxing-hero-enter {
+  animation: wuxingHeroEnter 560ms ease-out both;
+}
+
+.wuxing-main-pulse {
+  animation: wuxingMainPulse 3.8s ease-in-out infinite;
+}
+
+.wuxing-ring-breathe {
+  animation: wuxingRingBreathe 5.6s ease-in-out infinite;
+  transform-origin: 110px 110px;
+}
+
+.wuxing-flow {
+  animation: wuxingFlowRise 4.8s ease-in-out infinite;
+  transform-origin: 160px 60px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wuxing-hero-enter,
+  .wuxing-main-pulse,
+  .wuxing-ring-breathe,
+  .wuxing-flow {
+    animation: none;
+  }
 }

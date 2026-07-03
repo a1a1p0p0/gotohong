@@ -2,7 +2,7 @@
   max-width: 480px;
   min-height: 100vh;
   margin: 0 auto;
-  background: var(--bg);
+  background: var(--legacy-bg);
   padding-bottom: 72px;
 }
 
@@ -18,13 +18,13 @@
   grid-template-columns: repeat(4, 1fr);
   width: min(480px, 100vw);
   transform: translateX(-50%);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--legacy-line);
   background: #fffdf7;
 }
 
 .bottom-nav a {
   padding: 12px 4px;
-  color: var(--muted);
+  color: var(--legacy-muted);
   text-align: center;
   font-size: 13px;
 }

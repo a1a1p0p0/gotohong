@@ -1,4 +1,4 @@
-const CACHE_NAME = "wuxing-mobile-v1";
+const CACHE_NAME = "wuxing-mobile-v2";
 const CORE_ASSETS = ["/", "/icon.svg", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
@@ -15,6 +15,9 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  const url = new URL(event.request.url);
+  if (url.pathname.startsWith("/_next/") || url.pathname.startsWith("/__nextjs")) return;
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {

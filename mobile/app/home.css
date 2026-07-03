@@ -4,7 +4,7 @@
 
 .hero p {
   margin: 0 0 8px;
-  color: var(--accent);
+  color: var(--legacy-accent);
   font-weight: 700;
 }
 
@@ -24,7 +24,7 @@
 .primary-link {
   display: block;
   border-radius: 8px;
-  background: var(--accent);
+  background: var(--legacy-accent);
   color: white;
   padding: 14px 12px;
   text-align: center;
@@ -32,9 +32,9 @@
 }
 
 .report-card {
-  border: 1px solid var(--line);
+  border: 1px solid var(--legacy-line);
   border-radius: 8px;
-  background: var(--panel);
+  background: var(--legacy-panel);
   padding: 14px;
 }
 
@@ -47,7 +47,7 @@
 .element-line span {
   border-radius: 8px;
   background: #e7f3ef;
-  color: var(--accent-strong);
+  color: var(--legacy-accent-strong);
   padding: 8px 10px;
   font-weight: 700;
 }
@@ -60,7 +60,7 @@
 .period-grid span {
   border-radius: 8px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--legacy-line);
   padding: 10px;
   font-weight: 700;
 }
@@ -72,7 +72,7 @@
 }
 
 .momentum-split section {
-  border: 1px solid var(--line);
+  border: 1px solid var(--legacy-line);
   border-radius: 8px;
   background: #fff;
   padding: 12px;
@@ -81,13 +81,13 @@
 }
 
 .momentum-split strong {
-  color: var(--accent-strong);
+  color: var(--legacy-accent-strong);
 }
 
 .momentum-split span {
   border-radius: 8px;
   background: #e7f3ef;
-  color: var(--accent-strong);
+  color: var(--legacy-accent-strong);
   padding: 8px;
   font-weight: 700;
 }

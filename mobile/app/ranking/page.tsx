@@ -1,116 +1,73 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MobileLayout from "../../components/MobileLayout";
-import ReportCard from "../../components/ReportCard";
-import { apiPost } from "../../lib/api";
-import type { ApiEnvelope } from "../../lib/types";
-import { getUserId } from "../../lib/user";
+import { PaywallCard } from "../../components/PaywallCard";
+import { RankingPreview, type RankingItem } from "../../components/RankingPreview";
+import { UnlockCodeInput } from "../../components/UnlockCodeInput";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 
-function getTodayText() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, "0");
-  const day = String(now.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
+const previewItems: RankingItem[] = [
+  { rank: 1, name: "TOP 1 细分板块", element: "earth", status: "locked", score: "解锁查看", locked: true },
+  { rank: 2, name: "TOP 2 细分板块", element: "fire", status: "locked", score: "解锁查看", locked: true },
+  { rank: 3, name: "储能", element: "wood", status: "warming", score: "木势启动增强" },
+  { rank: 4, name: "AI 应用", element: "fire", status: "warming", score: "火势显化增强" },
+  { rank: 5, name: "工业母机", element: "earth", status: "warming", score: "土势结构增强" },
+];
 
-type RankingItem = {
-  rank: number;
-  industry_name: string;
-  main_element: string;
-  secondary_element: string;
-  score: number;
-  reason: string;
-};
-
-type RankingData = {
-  preview_items?: RankingItem[];
-  items?: RankingItem[];
-  visible_count?: number;
-  locked_count?: number;
-};
+const fullItems: RankingItem[] = [
+  { rank: 1, name: "基础化工", element: "earth", status: "warming", score: "土势承载最强" },
+  { rank: 2, name: "数据中心", element: "fire", status: "warming", score: "火势显化增强" },
+  { rank: 3, name: "储能", element: "wood", status: "warming", score: "木势启动增强" },
+  { rank: 4, name: "AI 应用", element: "fire", status: "warming", score: "传播动能增强" },
+  { rank: 5, name: "工业母机", element: "earth", status: "warming", score: "结构落地增强" },
+];
 
 export default function RankingPage() {
-  const [periodType, setPeriodType] = useState("day");
-  const [rankingType, setRankingType] = useState("favorable");
-  const [unlockCode, setUnlockCode] = useState("");
-  const [message, setMessage] = useState("");
-  const [items, setItems] = useState<RankingItem[]>([]);
-  const [lockedCount, setLockedCount] = useState(0);
-
-  useEffect(() => {
-    loadRanking("");
-  }, [periodType, rankingType]);
-
-  async function loadRanking(code: string) {
-    const today = getTodayText();
-    const result = await apiPost<ApiEnvelope<RankingData>>("/api/paid/ranking", {
-      period_type: periodType,
-      ranking_type: rankingType,
-      date: today,
-      user_id: getUserId(),
-      unlock_code: code,
-    });
-
-    if (result.code === "PAYWALL_REQUIRED") {
-      setItems(result.data.preview_items || []);
-      setLockedCount(result.data.locked_count || 0);
-      setMessage(result.paywall?.message || "解锁后查看 TOP 5。");
-      return;
-    }
-
-    setItems(result.data.items || []);
-    setLockedCount(0);
-    setMessage("已解锁 TOP 5");
-  }
-
-  async function createMockOrder() {
-    const today = getTodayText();
-    const accessTypeMap: Record<string, string> = {
-      month: "PAID_MONTH_RANKING",
-      week: "PAID_WEEK_RANKING",
-      day: "PAID_DAY_RANKING",
-    };
-    const result = await apiPost<ApiEnvelope<{ unlock_code: { code: string } }>>("/api/payment/create_mock_order", {
-      access_type: accessTypeMap[periodType],
-      target_key: `${periodType}:${rankingType}:${today}`,
-      amount: 990,
-      payment_channel: "WECHAT",
-      max_use_count: 1,
-    });
-    setUnlockCode(result.data.unlock_code.code);
-    setMessage("已生成本地解锁码。");
-  }
+  const [period, setPeriod] = useState("今日");
+  const [unlocked, setUnlocked] = useState(false);
 
   return (
-    <MobileLayout>
-      <h1>行业方案</h1>
-      <ReportCard title="Daily ranking">
-        <select value={periodType} onChange={(event) => setPeriodType(event.target.value)}>
-          <option value="month">当月</option>
-          <option value="week">当周</option>
-          <option value="day">当日</option>
-        </select>
-        <select value={rankingType} onChange={(event) => setRankingType(event.target.value)}>
-          <option value="favorable">最有利</option>
-          <option value="balanced">最平衡</option>
-        </select>
-        <input value={unlockCode} onChange={(event) => setUnlockCode(event.target.value)} placeholder="输入解锁码" />
-        <button onClick={createMockOrder}>生成模拟订单</button>
-        <button onClick={() => loadRanking(unlockCode)}>查看 TOP 5</button>
-        {message && <p>{message}</p>}
-        {lockedCount > 0 && <p>还有 {lockedCount} 个行业待解锁。</p>}
-      </ReportCard>
+    <MobileLayout subtitle="榜单预览" title="行业 TOP 榜">
+      <div className="space-y-4">
+        <Card className="bg-card/75">
+          <CardHeader>
+            <CardTitle>榜单周期</CardTitle>
+          </CardHeader>
+          <CardContent className="grid grid-cols-3 gap-2">
+            {["今日", "本周", "本月"].map((item) => (
+              <Button
+                key={item}
+                variant={period === item ? "default" : "secondary"}
+                size="sm"
+                onClick={() => setPeriod(item)}
+              >
+                {item}
+              </Button>
+            ))}
+          </CardContent>
+        </Card>
 
-      {items.map((item) => (
-        <ReportCard key={item.rank} title={`${item.rank}. ${item.industry_name}`}>
-          <p>主五行：{item.main_element}</p>
-          <p>副五行：{item.secondary_element}</p>
-          <p>分数：{item.score}</p>
-          <p>{item.reason}</p>
-        </ReportCard>
-      ))}
+        <Card className="border-primary/20 bg-card/75">
+          <CardContent className="space-y-2 p-4 text-sm leading-6 text-muted-foreground">
+            <p className="font-medium text-foreground">今日主势为土，副势为火、木。</p>
+            <p>本页只展示与当日势能最贴近的前五个板块，其中前二需要解锁查看。</p>
+          </CardContent>
+        </Card>
+
+        <RankingPreview title={`${period}行业 TOP 榜`} items={unlocked ? fullItems : previewItems} />
+
+        {!unlocked && (
+          <>
+            <PaywallCard
+              title="解锁 TOP 1-2"
+              description="免费版展示 TOP 3-5，用于快速理解今日行业动能方向。TOP 1-2 需要输入测试解锁码查看。"
+            />
+            <UnlockCodeInput onUnlocked={() => setUnlocked(true)} />
+          </>
+        )}
+      </div>
     </MobileLayout>
   );
 }
