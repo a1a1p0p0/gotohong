@@ -1,6 +1,16 @@
 import { notFound } from "next/navigation";
 import { SubcategoryDetailClient } from "./SubcategoryDetailClient";
-import { getCategoryById, getSubcategoryById } from "../../../lib/mock";
+import { boardProfiles } from "../../../lib/board-data";
+import { getCategoryById, getSubcategoryById, industrySubcategoriesMock } from "../../../lib/mock";
+
+export function generateStaticParams() {
+  const subcategoryIds = industrySubcategoriesMock.map((subcategory) => subcategory.subcategoryId);
+  const boardIds = boardProfiles.map((board) => board.boardCode);
+
+  return [...subcategoryIds, ...boardIds].map((subcategoryId) => ({
+    subcategoryId,
+  }));
+}
 
 export default async function SubcategoryDetailPage({
   params,

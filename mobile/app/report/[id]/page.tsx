@@ -4,6 +4,12 @@ import { PaywallCard } from "../../../components/PaywallCard";
 import { ReportSection } from "../../../components/ReportSection";
 import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
 
+export function generateStaticParams() {
+  return Array.from({ length: 20 }, (_, index) => ({
+    id: String(index + 1),
+  }));
+}
+
 export default async function ReportDetailPage({
   params,
 }: {

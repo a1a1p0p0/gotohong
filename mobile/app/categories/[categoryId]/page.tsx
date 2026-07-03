@@ -4,7 +4,13 @@ import MobileLayout from "../../../components/MobileLayout";
 import { ElementBadge } from "../../../components/ElementBadge";
 import { ReportSection } from "../../../components/ReportSection";
 import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
-import { getCategoryById, getSubcategoriesByCategoryId } from "../../../lib/mock";
+import { getCategoryById, getSubcategoriesByCategoryId, industryCategoriesMock } from "../../../lib/mock";
+
+export function generateStaticParams() {
+  return industryCategoriesMock.map((category) => ({
+    categoryId: category.categoryId,
+  }));
+}
 
 export default async function CategoryDetailPage({
   params,

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import MobileLayout from "../../components/MobileLayout";
 import ReportCard from "../../components/ReportCard";
 import { apiGet } from "../../lib/api";
@@ -15,8 +18,26 @@ type BoardItem = {
   need_review: string;
 };
 
-export default async function AstockPage() {
-  const result = await apiGet<ApiEnvelope<{ items: BoardItem[]; count: number }>>("/api/industry/astock-boards");
+export default function AstockPage() {
+  const [result, setResult] = useState<ApiEnvelope<{ items: BoardItem[]; count: number }> | null>(null);
+
+  useEffect(() => {
+    apiGet<ApiEnvelope<{ items: BoardItem[]; count: number }>>("/api/industry/astock-boards")
+      .then(setResult)
+      .catch(() => setResult(null));
+  }, []);
+
+  if (!result) {
+    return (
+      <MobileLayout>
+        <h1>A stock boards</h1>
+        <ReportCard title="Loading">
+          <p>Loading data...</p>
+        </ReportCard>
+      </MobileLayout>
+    );
+  }
+
   return (
     <MobileLayout>
       <h1>A 股板块五行</h1>

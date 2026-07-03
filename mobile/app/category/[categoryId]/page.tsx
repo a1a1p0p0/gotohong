@@ -7,7 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui
 import { buttonVariants } from "../../../components/ui/button";
 import { cn } from "../../../lib/utils";
 import { boardProfiles } from "../../../lib/board-data";
-import { getCategoryById } from "../../../lib/mock";
+import { getCategoryById, industryCategoriesMock } from "../../../lib/mock";
+
+export function generateStaticParams() {
+  return industryCategoriesMock.map((category) => ({
+    categoryId: category.categoryId,
+  }));
+}
 
 export default async function CategoryDetailPage({
   params,

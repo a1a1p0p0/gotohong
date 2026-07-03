@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import MobileLayout from "../../components/MobileLayout";
 import ReportCard from "../../components/ReportCard";
 import { apiGet } from "../../lib/api";
@@ -14,8 +17,23 @@ type WeekData = {
   summary: string;
 };
 
-export default async function FreeWeekPage() {
-  const result = await apiGet<ApiEnvelope<WeekData>>("/api/free/week");
+export default function FreeWeekPage() {
+  const [result, setResult] = useState<ApiEnvelope<WeekData> | null>(null);
+
+  useEffect(() => {
+    apiGet<ApiEnvelope<WeekData>>("/api/free/week").then(setResult).catch(() => setResult(null));
+  }, []);
+
+  if (!result) {
+    return (
+      <MobileLayout>
+        <h1>Week analysis</h1>
+        <ReportCard title="Loading">
+          <p>Loading data...</p>
+        </ReportCard>
+      </MobileLayout>
+    );
+  }
 
   return (
     <MobileLayout>

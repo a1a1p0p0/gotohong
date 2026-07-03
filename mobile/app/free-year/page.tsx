@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import MobileLayout from "../../components/MobileLayout";
 import ReportCard from "../../components/ReportCard";
 import { apiGet } from "../../lib/api";
@@ -14,8 +17,23 @@ type YearData = {
   summary: string;
 };
 
-export default async function FreeYearPage() {
-  const result = await apiGet<ApiEnvelope<YearData>>("/api/free/year");
+export default function FreeYearPage() {
+  const [result, setResult] = useState<ApiEnvelope<YearData> | null>(null);
+
+  useEffect(() => {
+    apiGet<ApiEnvelope<YearData>>("/api/free/year").then(setResult).catch(() => setResult(null));
+  }, []);
+
+  if (!result) {
+    return (
+      <MobileLayout>
+        <h1>Year analysis</h1>
+        <ReportCard title="Loading">
+          <p>Loading data...</p>
+        </ReportCard>
+      </MobileLayout>
+    );
+  }
 
   return (
     <MobileLayout>

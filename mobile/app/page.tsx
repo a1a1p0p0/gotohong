@@ -1,7 +1,7 @@
 import MobileLayout from "../components/MobileLayout";
 import { WuxingEnergyHero } from "../components/WuxingEnergyHero";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export default function HomePage() {
   return (
